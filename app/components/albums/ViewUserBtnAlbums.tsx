@@ -1,12 +1,12 @@
 'use client'
 import React from "react";
 
-interface ViewUserBtnProps {
-  userId: number;
+interface ViewUserBtnAlbumsProps {
+  name: string;
 }
 
-const ViewUserBtn: React.FC<ViewUserBtnProps> = ({ userId }) => {
-  const handleClickBtn = () => alert(`User Id: ${userId}`);
+const ViewUserBtnAlbums: React.FC<ViewUserBtnAlbumsProps> = ({ name }) => {
+  const handleClickBtn = () => alert(`User Name: ${name}`);
 
   return (
     <div className="mt-3">
@@ -20,4 +20,4 @@ const ViewUserBtn: React.FC<ViewUserBtnProps> = ({ userId }) => {
   );
 };
 
-export default ViewUserBtn;
+export default ViewUserBtnAlbums;

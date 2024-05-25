@@ -1,23 +1,24 @@
 
 import { FiArrowLeft } from "react-icons/fi";
 import CardList from "../components/posts/CardList";
-import ViewUserBtn from "../components/posts/ViewUserBtn";
 import Link from "next/link";
+import ViewUserBtnAlbums from "../components/albums/ViewUserBtnAlbums";
 
-const Posts = async () => {
-  const base_url = "https://jsonplaceholder.typicode.com/posts";
+const Albums = async () => {
+  const base_url = "https://jsonplaceholder.typicode.com/comments";
 
-  interface Iposts {
-    userId: number;
+  interface Ialbums {
+    postId: number;
     id: number;
-    title: string;
+    name: string;
+    email: string;
     body: string;
   }
 
   const response = await fetch(base_url, {
     cache: "no-store"
   });
-  const posts: Iposts[] = await response.json();
+  const albums: Ialbums[] = await response.json();
 
 
   return (
@@ -31,14 +32,14 @@ const Posts = async () => {
         </button>
         </Link>
        
-        <h1 className="text-3xl font-bold">Post Page</h1>
+        <h1 className="text-3xl font-bold">Comments Page</h1>
       </div>
-      {posts.map((post) => {
+      {albums.map((album) => {
         return (
-          <CardList key={post.id}>
-            <h1 className="text-xl font-bold">{post.title}</h1>
-            <p className="text-gray-700">{post.body}</p>
-            <ViewUserBtn userId={post.userId} />
+          <CardList key={album.id}>
+            <p className="text-gray-700">{album.email}</p>
+            <p className="text-gray-700">{album.body}</p>
+            <ViewUserBtnAlbums name={album.name} />
           </CardList>
         );
       })}
@@ -46,4 +47,4 @@ const Posts = async () => {
   );
 };
 
-export default Posts;
+export default Albums;
