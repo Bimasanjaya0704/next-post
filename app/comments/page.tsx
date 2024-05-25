@@ -37,6 +37,7 @@ const Albums = async () => {
       {albums.map((album) => {
         return (
           <CardList key={album.id}>
+            <p className="text-gray-700 text-lg font-bold">Post Id : {album.postId}</p>
             <p className="text-gray-700">{album.email}</p>
             <p className="text-gray-700">{album.body}</p>
             <ViewUserBtnAlbums name={album.name} />
