@@ -1,8 +1,12 @@
 'use client'
 
-const ViewUserBtn = () => {
+interface ViewUserBtnProops{
+  userId : number
+}
+
+const ViewUserBtn: React.FC<ViewUserBtnProops> = ({userId}) => {
     const handleClickBtn = () =>
-        alert ("Berhasil di click")
+        alert (`User Id : ${userId}`)
     
   return (
     <div>
